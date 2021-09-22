@@ -1,0 +1,9 @@
+@extends('main')
+@section('waka_waka_eh_eh')
+@include('partials.nav')
+@include('partials.welcome')
+@include('partials.chef')
+@include('partials.customer')
+@include('partials.bookink')
+@include('partials.footer')
+@endsection
