@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Database\Factories\CustomerFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -14,7 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer = Customer::all();
+        return view('backoffice.pages.customer.customer', compact('customer'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.customer.customerCreate');
     }
 
     /**
@@ -35,7 +38,23 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "firstname" => "required",
+            "comment" => "required",
+            "grade" => "required",
+            "url" => "required"
+        ]);
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->firstname = $request->firstname;
+        $customer->comment = $request->comment;
+        $customer->grade = $request->grade;
+        $customer->url = $request->file('url')->hashName();
+        $customer->save();
+
+        $request->file('url')->storePublicly('img', 'public');
+        return redirect()->route('customers.index')->with('message', 'Commentaire ajouté avec succès');
     }
 
     /**
@@ -46,7 +65,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('backoffice.pages.customer.customerShow', compact('customer'));
     }
 
     /**
@@ -57,7 +76,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('backoffice.pages.customer.customerEdit', compact('customer'));
     }
 
     /**
@@ -69,7 +88,24 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "firstname" => "required",
+            "comment" => "required",
+            "grade" => "required",
+            "url" => "required"
+        ]);
+
+        Storage::disk('public')->delete('img/'. $customer->url);
+
+        $customer->name = $request->name;
+        $customer->firstname = $request->firstname;
+        $customer->comment = $request->comment;
+        $customer->grade = $request->grade;
+        $customer->url = $request->file('url')->hashName();
+        $customer->save();
+
+        return redirect()->route('customers.index')->with('message', 'Commentaire ajouté avec succès');
     }
 
     /**
@@ -80,6 +116,8 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
-    }
+        Storage::disk('public')->delete('img/'. $customer->url);
+        $customer->delete();
+
+        return redirect()->route('customers.index')->with('message', 'Commentaire supprimé avec succès');    }
 }

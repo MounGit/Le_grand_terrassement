@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+ });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,6 +41,6 @@ Route::get('/backoffice/welcome', [WelcomeController::class, 'index'])->middlewa
 
 Route::get('/welcome/{id}/edit', [WelcomeController::class, 'edit'])->middleware(['auth'])->name('welcomeEdit');
 
-Route::get('/welcome/{id}/update', [WelcomeController::class, 'update'])->middleware(['auth'])->name('welcomeUpdate');
+Route::put('/welcome/{id}/update', [WelcomeController::class, 'update'])->middleware(['auth'])->name('welcomeUpdate');
 
 require __DIR__.'/auth.php';

@@ -22,7 +22,11 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name" => $this->faker->lastName(),
+            "firstname" => $this->faker->firstName(),
+            "comment" => $this->faker->text(),
+            "grade" => $this->faker->numberBetween(1,5),
+            "url" => $this->faker->imageUrl()
         ];
     }
 }

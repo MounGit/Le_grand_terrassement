@@ -15,6 +15,10 @@ class CreateBookinksTable extends Migration
     {
         Schema::create('bookinks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('url');
+            $table->text('msg');
             $table->timestamps();
         });
     }
