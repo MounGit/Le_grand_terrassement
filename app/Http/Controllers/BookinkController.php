@@ -26,7 +26,7 @@ class BookinkController extends Controller
      */
     public function create()
     {
-        return view('backoffice.pages.bookink.bookinkCreate');
+        // return view('backoffice.pages.bookink.bookinkCreate');
     }
 
     /**
@@ -37,23 +37,22 @@ class BookinkController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "name" => "required",
-            "email" => "required",
-            "url" => "required", 
-            "msg" => "required"
-        ]);
+        // $request->validate([
+        //     "name" => "required",
+        //     "email" => "required",
+        //     "url" => "required", 
+        //     "msg" => "required"
+        // ]);
 
-        $bookink = new Bookink;
-        $bookink->name = $request->name;
-        $bookink->email = $request->email;
-        $bookink->url = $request->file('url')->hashName();
-        $bookink->msg = $request->msg;
-        $bookink->save();
+        // $bookink = new Bookink;
+        // $bookink->name = $request->name;
+        // $bookink->email = $request->email;
+        // $bookink->url = $request->url;
+        // $bookink->msg = $request->msg;
+        // $bookink->save();
 
-        $request->file('url')->storePublicly('img', 'public');
 
-        return redirect()->route('bookinks.index')->with('message', 'Message envoyé avec succès');
+        // return redirect()->route('home')->with('message', 'Message envoyé avec succès');
 
     }
 
@@ -65,7 +64,7 @@ class BookinkController extends Controller
      */
     public function show(Bookink $bookink)
     {
-        return view('backoffice.pages.bookink.bookinkCreate', compact('bookink'));
+        // return view('backoffice.pages.bookink.bookinkCreate', compact('bookink'));
     }
 
     /**
@@ -89,24 +88,35 @@ class BookinkController extends Controller
      */
     public function update(Request $request, Bookink $bookink)
     {
-        // $request->validate([
-        //     "name" => "required",
-        //     "email" => "required",
-        //     "url" => "required", 
-        //     "msg" => "required"
-        // ]);
+        $request->validate([
+            "adress1" => "required",
+            "adress2" => "required",
+            "adress3" => "required",
+            "phone" => "required",
+            "mday" => "required",
+            "tuday" => "required",
+            "wday" => "required",
+            "thday" => "required",
+            "fday" => "required",
+            "satday" => "required",
+            "sunday" => "required",
+        ]);
 
-        // Storage::disk('public')->delete('img/'. $bookink->url);
 
-        // $bookink->name = $request->name;
-        // $bookink->email = $request->email;
-        // $bookink->url = $request->file('url')->hashName();
-        // $bookink->msg = $request->msg;
-        // $bookink->save();
+        $bookink->adress1 = $request->adress1;
+        $bookink->adress2 = $request->adress2;
+        $bookink->adress3 = $request->adress3;
+        $bookink->phone = $request->phone;
+        $bookink->mday = $request->mday;
+        $bookink->tuday = $request->tuday;
+        $bookink->wday = $request->wday;
+        $bookink->thday =$request->thday;
+        $bookink->fday = $request->fday;
+        $bookink->satday = $request->satday;
+        $bookink->sunday = $request->sunday;
+        $bookink->save();
 
-        // $request->file('url')->storePublicly('img', 'public');
-
-        // return redirect()->route('bookinks.index')->with('message', 'Message modifié avec succès');
+        return redirect()->route('bookinks.index')->with('message', 'Information réservations modifiées avec succès');
     }
 
     /**
@@ -117,9 +127,8 @@ class BookinkController extends Controller
      */
     public function destroy(Bookink $bookink)
     {
-        Storage::disk('public')->delete('img/'. $bookink->url);
-        $bookink->delete();
-        return redirect()->route('bookinks.index')->with('message', 'Message supprimé avec succès');
+        // $bookink->delete();
+        // return redirect()->route('bookinks.index')->with('message', 'Message supprimé avec succès');
         
     }
 }

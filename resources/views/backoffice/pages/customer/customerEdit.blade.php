@@ -2,7 +2,9 @@
 
 @section('baka')
 
-<section class="container">
+<h2 class="page-section-heading text-center text-uppercase py-5">Modifiez le commentaire</h2>
+
+<section class="container py-5">
 
     @if ($errors->any())
         <div class="container alert alert-danger">
@@ -13,7 +15,6 @@
             </ul>
         </div>
     @endif
-
     <form class="container d-flex flex-column w-75" action="{{route('customers.update', $customer->id)}}" enctype="multipart/form-data" method="post">
         @csrf
         @method('PUT')
@@ -38,11 +39,11 @@
                 }
             @endphp --}}
         </option>
-            <option value="1"><span><i class='bx bxs-star bg-dark'></i></span></option>
-            <option value="2"><i class='bx bxs-star text-warning'></i><i class='bx bxs-star'></i></option>
-            <option value="3"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
-            <option value="4"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
-            <option value="5"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
+            <option value="1"> 1<span><i class='bx bxs-star bg-dark'></i></span></option>
+            <option value="2"> 2<i class='bx bxs-star text-warning'></i><i class='bx bxs-star'></i></option>
+            <option value="3"> 3<i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
+            <option value="4"> 4<i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
+            <option value="5"> 5<i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></option>
         </select>
 
         <label for="url">Photo client</label>

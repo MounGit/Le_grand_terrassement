@@ -104,8 +104,9 @@ class CustomerController extends Controller
         $customer->grade = $request->grade;
         $customer->url = $request->file('url')->hashName();
         $customer->save();
+        $request->file('url')->storePublicly('img', 'public');
 
-        return redirect()->route('customers.index')->with('message', 'Commentaire ajouté avec succès');
+        return redirect()->route('customers.index')->with('message', 'Commentaire modifié avec succès');
     }
 
     /**

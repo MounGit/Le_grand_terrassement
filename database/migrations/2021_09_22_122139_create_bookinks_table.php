@@ -15,10 +15,21 @@ class CreateBookinksTable extends Migration
     {
         Schema::create('bookinks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('url');
-            $table->text('msg');
+            // $table->string('name');
+            // $table->string('email');
+            // $table->string('url');
+            // $table->text('msg');
+            $table->string('adress1');
+            $table->string('adress2');
+            $table->string('adress3');
+            $table->string('phone');
+            $table->string('mday');
+            $table->string('tuday');
+            $table->string('wday');
+            $table->string('thday');
+            $table->string('fday');
+            $table->string('satday');
+            $table->string('sunday');
             $table->timestamps();
         });
     }

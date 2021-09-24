@@ -22,10 +22,10 @@ class BookinkFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->name(),
-            "email" => $this->faker->email(),
-            "url" =>$this->faker->imageUrl(),
-            "msg" =>$this->faker->text()
+            // "name" => $this->faker->name(),
+            // "email" => $this->faker->email(),
+            // "url" =>$this->faker->imageUrl(),
+            // "msg" =>$this->faker->text()
         ];
     }
 }

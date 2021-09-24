@@ -1,8 +1,9 @@
 @extends('backoffice.template.mainBack')
 
 @section('baka')
+<h2 class="page-section-heading text-center text-uppercase py-5">commentaires clients</h2>
 
-<section class="container">
+<section class="container pb-5">
 
 
     @if(session()->has('message'))
@@ -33,7 +34,7 @@
                 <td>
                 <div class="d-flex justify-content-around my-3">
                                 <a class="btn btn-primary text-black" href="{{route('customers.show', $data->id)}}">Détails</a>
-                                <a class="btn btn-warning" href="{{route('customers.edit', $data->id)}}">Modifier</a>
+                                <a class="btn btn-warning mx-2" href="{{route('customers.edit', $data->id)}}">Modifier</a>
                                 <form action="{{route('customers.destroy', $data->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')

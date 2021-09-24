@@ -44,6 +44,18 @@ class DatabaseSeeder extends Seeder
         
         Customer::factory(5)->create();   
 
-        Bookink::factory(15)->create();
+        DB::table('bookinks')->insert([
+            "adress1" => "Florence Building",
+            "adress2" => "Kings Square",
+            "adress3" => "London, LDN1 23 ",
+            "phone" => "+448754 658 048",
+            "mday" => "11:00 AM - 11:00 PM",
+            "tuday" => "11:00 AM - 11:00 PM",
+            "wday" => "11:00 AM - 11:00 PM",
+            "thday" => "11:00 AM - 11:00 PM",
+            "fday" => "11:00 AM - 1:00 AM",
+            "satday" => "11:00 AM - 1:00 AM",
+            "sunday" => "11:00 AM - 1:00 AM",
+        ]);
     }
 }

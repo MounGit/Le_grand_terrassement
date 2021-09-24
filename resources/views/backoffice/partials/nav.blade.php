@@ -20,9 +20,9 @@
      <li>
         <a href="/backoffice/welcome">
           <i class='bx bxl-tux' ></i>
-          <span class="links_name">Welwome</span>
+          <span class="links_name">Welcome</span>
         </a>
-        <span class="tooltip">Welwome</span>
+        <span class="tooltip">Welcome</span>
       </li>
      <li>
        <a href="{{route('bookinks.index')}}">

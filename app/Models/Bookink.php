@@ -11,5 +11,5 @@ class Bookink extends Model
 
     protected $table = "bookinks";
 
-    protected $fillable = ["name", "email", "url", "msg"];
+    protected $fillable = ["adress1", "adress2", "adress3", "phone", "mday", "tuday", "wday", "thday", "fday", "satday", "sunday"];
 }

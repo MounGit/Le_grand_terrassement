@@ -1,9 +1,10 @@
 @extends('backoffice.template.mainBack')
 
 @section('baka')
+<h2 class="page-section-heading text-center text-uppercase py-5">informations introduction</h2>
 
-<section class="container bg-dark rounded text-white py-5">
-    <div class="my-5">
+<section class="container py-5">
+    <div class="">
         <div class="container d-flex justify-content-around">
             <div class="col-md-5 col-md-offset-1">
                 <h2 class="mb50">About <span class="theme-accent-color">DuJour</span></h2>
