@@ -119,5 +119,6 @@ class CustomerController extends Controller
         Storage::disk('public')->delete('img/'. $customer->url);
         $customer->delete();
 
-        return redirect()->route('customers.index')->with('message', 'Commentaire supprimé avec succès');    }
+        return redirect()->route('customers.index')->with('message', 'Commentaire supprimé avec succès');    
+    }
 }
