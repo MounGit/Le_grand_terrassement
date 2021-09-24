@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chef;
+use CreateChefsTable;
+use Database\Factories\ChefFactory;
 use Illuminate\Http\Request;
 
 class ChefController extends Controller
@@ -14,7 +16,8 @@ class ChefController extends Controller
      */
     public function index()
     {
-        //
+        $chef = Chef::all();
+       return view('backoffice.pages.chef.chef', compact('chef'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ChefController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.chef.chefCreate');
     }
 
     /**
@@ -57,7 +60,8 @@ class ChefController extends Controller
      */
     public function edit(Chef $chef)
     {
-        //
+        $chef = '$id';
+        return view('backoffice.pages.chef.chefEdit', compact('chef'));
     }
 
     /**

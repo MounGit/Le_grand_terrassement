@@ -22,7 +22,8 @@ class ChefFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "photo_chef" => "team /1.jpg",
+            "nom_chef" => $this->faker->name(),
         ];
     }
 }
