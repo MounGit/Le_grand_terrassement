@@ -5,6 +5,7 @@ use App\Http\Controllers\ChefController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Chef;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,8 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/home', function(){
-    return view ('home');
+    $chef=Chef::all();
+    return view ('home', compact('chef'));
 })->name('home');
 
 Route::resource('/bookinks', BookinkController::class)->middleware(['auth']);

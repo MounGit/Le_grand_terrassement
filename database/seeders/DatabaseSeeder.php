@@ -46,13 +46,13 @@ class DatabaseSeeder extends Seeder
 
         DB::table('chefs')->insert([
 
-            ["photo_chef" => "img/team/1.jpg",
+            ["photo_chef" => "1.jpg",
             "nom_chef" => "Jhon Doe"],
-            ["photo_chef" => "img/team/1.jpg",
+            ["photo_chef" => "1.jpg",
             "nom_chef" => "Jhon Doe"],
-            ["photo_chef" => "img/team/1.jpg",
+            ["photo_chef" => "1.jpg",
             "nom_chef" => "Jhon Doe"],
-            ["photo_chef" => "img/team/1.jpg",
+            ["photo_chef" => "1.jpg",
             "nom_chef" => "Jhon Doe"],
         ]);
 
