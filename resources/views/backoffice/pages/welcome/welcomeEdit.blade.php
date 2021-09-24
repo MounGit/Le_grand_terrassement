@@ -3,8 +3,8 @@
 @section('baka')
 
     <section class="container bg-dark rounded text-white py-5">
-        <form class="d-flex flex-column w-75" action="{{ route('welcomeUpdate', $welcome->id) }}" method="post">
-            @csr
+        <form class="container d-flex flex-column w-75" action="{{ route('welcomeUpdate', $welcome->id) }}" method="post">
+            @csrf
             @method('PUT')
 
             <label for="about1">Description about première partie : </label>

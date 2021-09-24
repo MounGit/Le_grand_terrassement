@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bookink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BookinkController extends Controller
 {
@@ -14,7 +15,8 @@ class BookinkController extends Controller
      */
     public function index()
     {
-        //
+        $bookink = Bookink::all();
+        return view('backoffice.pages.bookink.bookink', compact('bookink'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BookinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.bookink.bookinkCreate');
     }
 
     /**
@@ -35,7 +37,24 @@ class BookinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "url" => "required", 
+            "msg" => "required"
+        ]);
+
+        $bookink = new Bookink;
+        $bookink->name = $request->name;
+        $bookink->email = $request->email;
+        $bookink->url = $request->file('url')->hashName();
+        $bookink->msg = $request->msg;
+        $bookink->save();
+
+        $request->file('url')->storePublicly('img', 'public');
+
+        return redirect()->route('bookinks.index')->with('message', 'Message envoyé avec succès');
+
     }
 
     /**
@@ -46,7 +65,7 @@ class BookinkController extends Controller
      */
     public function show(Bookink $bookink)
     {
-        //
+        return view('backoffice.pages.bookink.bookinkCreate', compact('bookink'));
     }
 
     /**
@@ -57,7 +76,8 @@ class BookinkController extends Controller
      */
     public function edit(Bookink $bookink)
     {
-        //
+        return view('backoffice.pages.bookink.bookinkEdit', compact('bookink'));
+        
     }
 
     /**
@@ -69,7 +89,24 @@ class BookinkController extends Controller
      */
     public function update(Request $request, Bookink $bookink)
     {
-        //
+        // $request->validate([
+        //     "name" => "required",
+        //     "email" => "required",
+        //     "url" => "required", 
+        //     "msg" => "required"
+        // ]);
+
+        // Storage::disk('public')->delete('img/'. $bookink->url);
+
+        // $bookink->name = $request->name;
+        // $bookink->email = $request->email;
+        // $bookink->url = $request->file('url')->hashName();
+        // $bookink->msg = $request->msg;
+        // $bookink->save();
+
+        // $request->file('url')->storePublicly('img', 'public');
+
+        // return redirect()->route('bookinks.index')->with('message', 'Message modifié avec succès');
     }
 
     /**
@@ -80,6 +117,9 @@ class BookinkController extends Controller
      */
     public function destroy(Bookink $bookink)
     {
-        //
+        Storage::disk('public')->delete('img/'. $bookink->url);
+        $bookink->delete();
+        return redirect()->route('bookinks.index')->with('message', 'Message supprimé avec succès');
+        
     }
 }
