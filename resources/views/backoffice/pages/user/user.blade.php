@@ -12,30 +12,31 @@
     @endif
 
     <div class="container d-flex justify-content-center">
-        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('chefs.create')}}">Ajouter un nouveau Chef</a>
+        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('users.create')}}">Ajouter un utilisateur</a>
     </div>
 
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Photo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Role</th>
                 <th></th>
-
             </tr>
         </thead>
         <tbody>
-            @foreach($chef as $data)
+            @foreach($user as $data)
             <tr>
-                <th scope="row">{{$data->id}}</th>
-                <td>{{$data->nom_chef}}</td>
-                <td>{{$data->photo_chef}}</td>
+                <th scope="row">{{$data->name}}</th>
+                <td>{{$data->email}}</td>
+                <td>{{$data->password}}</td>
+                <td>{{$data->role_id}}</td>
                 <td>
                 <div class="d-flex justify-content-around my-3">
-                                <a class="btn btn-primary text-black" href="{{route('chefs.show', $data->id)}}">Détails</a>
-                                <a class="btn btn-warning" href="{{route('chefs.edit', $data->id)}}">Modifier</a>
-                                <form action="{{route('chefs.destroy', $data->id)}}" method="post">
+                                <a class="btn btn-primary text-black" href="{{route('users.show', $data->id)}}">Détails</a>
+                                <a class="btn btn-warning" href="{{route('users.edit', $data->id)}}">Modifier</a>
+                                <form action="{{route('users.destroy', $data->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger text-black" type="submit">Supprimer</button>

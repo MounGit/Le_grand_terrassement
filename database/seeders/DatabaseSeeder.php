@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Bookink;
 use App\Models\Customer;
+use App\Models\User;
 use App\Models\Welcome;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -44,16 +45,22 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('chefs')->insert([
-            "chef_part1" => "Our Acclaimed Chefs",
-            "chef_part2" => "Dedicated to excellence.",
-            "photo1" => "img/team/1.jpg",
-            "chef1" => "Jhon Doe",
-        ]);
 
+            ["photo_chef" => "img/team/1.jpg",
+            "nom_chef" => "Jhon Doe"],
+            ["photo_chef" => "img/team/1.jpg",
+            "nom_chef" => "Jhon Doe"],
+            ["photo_chef" => "img/team/1.jpg",
+            "nom_chef" => "Jhon Doe"],
+            ["photo_chef" => "img/team/1.jpg",
+            "nom_chef" => "Jhon Doe"],
+        ]);
 
         
         Customer::factory(5)->create();   
 
         Bookink::factory(15)->create();
+
+        User::factory(10)->create();
     }
 }

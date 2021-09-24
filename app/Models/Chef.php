@@ -11,5 +11,5 @@ class Chef extends Model
 
     protected $table = "chefs";
 
-    protected $fillable = [""]
+    protected $fillable = ["photo_chef","nom_chef"];
 }

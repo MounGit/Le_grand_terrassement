@@ -21,12 +21,7 @@
         </div>
     </section>
 
-    <!--Chef-->
-    <section class="chef-section">
-        <div class="text">
-                @yield('baka')
-        </div>
-    </section>
+
 
     <!--Customers-->
 

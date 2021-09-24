@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('backoffice.pages.user.user', compact('user'));
     }
 
     /**
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.user.userCreate');
     }
 
     /**
@@ -35,7 +36,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "password" => "required",
+            "role_id" => "required",
+
+        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role_id = $request->role_id;
+        $user->save();
+
+        return redirect()->route('users.index')->with('message', 'Utilisateur ajouté avec succès');
     }
 
     /**
@@ -46,7 +61,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('backoffice.pages.user.userShow', compact('user'));
     }
 
     /**
@@ -57,7 +72,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('backoffice.pages.user.userEdit', compact('user'));
     }
 
     /**
@@ -69,7 +84,19 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "password" => "required",
+            "role_id" => "required",
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role_id = $request->role_id;
+        $user->save();
+
+        return redirect()->route('users.index')->with('message', 'Utilisateur ajouté avec succès');
     }
 
     /**
@@ -80,6 +107,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('users.index')->with('message', 'Utilisateur supprimé avec succès');   
     }
 }

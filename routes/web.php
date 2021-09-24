@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookinkController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,8 @@ Route::resource('/bookinks', BookinkController::class)->middleware(['auth']);
 Route::resource('/chefs', ChefController::class)->middleware(['auth']);
 
 Route::resource('/customers', CustomerController::class)->middleware(['auth']);
+
+Route::resource('/users', UserController::class)->middleware(['auth']);
 
 Route::get('/backoffice/welcome', [WelcomeController::class, 'index'])->middleware(['auth'])->name('welcome');
 

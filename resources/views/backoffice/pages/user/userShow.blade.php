@@ -5,12 +5,14 @@
 <section class="container">
 
     <div class="card" style="width: 18rem;">
-        <img src="{{asset('img/'.$chef->photo_chef)}}" class="card-img-top" alt="...">
+        <h1>{{$user->name}}</h1>
         <div class="card-body">
-        <h5 class="card-title">{{$chef->nom_chef}}</h5>
+        <h2 class="card-title">{{$user->email}}</h2>
+        <h2 class="card-title">{{$user->password}}</h2>
+        <h3 class="card-litle">{{$user->role_id}}</h3>
           <div class="d-flex justify-content-center mb-5">
-            <a class="btn btn-warning mx-2" href="{{route('chefs.edit', $chef->id)}}">Modifier</a>
-            <form action="{{route('chefs.destroy', $chef->id)}}" method="post">
+            <a class="btn btn-warning mx-2" href="{{route('users.edit', $user->id)}}">Modifier</a>
+            <form action="{{route('users.destroy', $user->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger text-black mx-2" type="submit">Supprimer</button>

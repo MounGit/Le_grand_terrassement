@@ -15,8 +15,8 @@ class CreateChefsTable extends Migration
     {
         Schema::create('chefs', function (Blueprint $table) {
             $table->id();
-            $table->src('photo1');
-            $table->text('chef1');
+            $table->string('photo_chef');
+            $table->string('nom_chef');
             $table->timestamps();
         });
     }

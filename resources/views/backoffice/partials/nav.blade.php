@@ -45,6 +45,21 @@
       </a>
       <span class="tooltip">Chefs</span>
     </li>
+
+
+    {{-- lien backoffice user --}}
+
+    <li>
+      <a href="{{route('users.index')}}">
+        <i class='bx bxs-user-plus'></i>
+        <span class="links_name">Users</span>
+      </a>
+      <span class="tooltip">Users</span>
+    </li>
+
+
+
+
      {{-- <li>
        <a href="">
         <i class='bx bxs-bug'></i>
