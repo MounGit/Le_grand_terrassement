@@ -2,6 +2,8 @@
 
 @section('baka')
 
+<h2 class="page-section-heading text-center text-uppercase py-5">Modifiez les utilisateurs</h2>
+
 <section class="container">
 
     @if ($errors->any())

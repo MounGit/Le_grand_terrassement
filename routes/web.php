@@ -38,23 +38,42 @@ Route::get('/', function(){
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'admin', 'webmaster', 'editeur'])->name('dashboard');
 
+})
+// ->middleware(['auth','webmaster','editeur'])
 
-Route::resource('/bookinks', BookinkController::class)->middleware(['auth','admin', 'webmaster']);
+->name('dashboard');
 
+Route::resource('/bookinks', BookinkController::class)
+// ->middleware(['auth','admin', 'webmaster'])
+;
 
-Route::resource('/customers', CustomerController::class)->middleware(['auth', 'admin', 'editeur', 'webmaster']);
+Route::resource('/customers', CustomerController::class)
+// ->middleware(['auth', 'admin', 'editeur', 'webmaster'])
+;
 
-Route::get('/backoffice/welcome', [WelcomeController::class, 'index'])->middleware(['auth', 'admin', 'webmaster'])->name('welcome');
+Route::get('/backoffice/welcome', [WelcomeController::class, 'index'])
+// ->middleware(['auth', 'admin', 'webmaster'])
+->name('welcome');
 
-Route::get('/welcome/{id}/edit', [WelcomeController::class, 'edit'])->middleware(['auth', 'admin', 'webmaster'])->name('welcomeEdit');
+Route::get('/welcome/{id}/edit', [WelcomeController::class, 'edit'])
+// ->middleware(['auth', 'admin', 'webmaster'])
+->name('welcomeEdit');
 
-Route::put('/welcome/{id}/update', [WelcomeController::class, 'update'])->middleware(['auth', 'admin', 'webmaster'])->name('welcomeUpdate');
-Route::resource('/users', UserController::class)->middleware(['auth']);
+Route::put('/welcome/{id}/update', [WelcomeController::class, 'update'])
+// ->middleware(['auth', 'admin', 'webmaster'])
+->name('welcomeUpdate');
 
-Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
+Route::resource('/users', UserController::class)
+// ->middleware(['auth'])
+;
 
-Route::resource('/chefs', ChefController::class)->middleware(['auth', 'admin', 'webmaster']);
+Route::resource('/users', UserController::class)
+// ->middleware(['auth', 'admin'])
+;
+
+Route::resource('/chefs', ChefController::class)
+// ->middleware(['auth', 'admin', 'webmaster'])
+;
 
 require __DIR__.'/auth.php';

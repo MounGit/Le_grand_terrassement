@@ -15,7 +15,7 @@
             <textarea name="about_part2" id="about2" cols="30" rows="3">{{ $welcome->about_part2 }}</textarea>
 
             <label class="my-2" for="award1">Description award première partie : </label>
-            <textarea name="award_part2" id="award2" cols="30" rows="3">{{ $welcome->award_part1 }}</textarea>
+            <textarea name="award_part1" id="award1" cols="30" rows="3">{{ $welcome->award_part1 }}</textarea>
 
             <label class="my-2" for="award2">Description award deuxième partie : </label>
             <textarea name="award_part2" id="award2" cols="30" rows="3">{{ $welcome->award_part2 }}</textarea>

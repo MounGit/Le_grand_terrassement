@@ -1,4 +1,4 @@
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="assets/img/bg/bg1.jpg"
+<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="img/bg/bg1.jpg"
     data-speed="0.8">
     <div class="section-inner">
         <div class="container">

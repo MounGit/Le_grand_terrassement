@@ -15,6 +15,7 @@ class BookinkController extends Controller
      */
     public function index()
     {
+
         $bookink = Bookink::all();
         return view('backoffice.pages.bookink.bookink', compact('bookink'));
     }

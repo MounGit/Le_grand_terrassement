@@ -1,5 +1,5 @@
 <section class="dark-wrapper opaqued parallax" data-parallax="scroll"
-    data-image-src="{{ asset('assets/img/bg/bg10.jpg') }}" data-speed="0.8">
+    data-image-src="{{ asset('img/bg/bg10.jpg') }}" data-speed="0.8">
     <div class="section-inner">
         <div class="container">
             <div class="row">

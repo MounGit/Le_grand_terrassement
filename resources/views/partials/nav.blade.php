@@ -2,7 +2,7 @@
 
     <div class="preloader">
         <div class="preloader-img">
-            <span class="loading-animation animate-flicker"><img src="{{asset('assets/img/loading.GIF')}}" alt="loading" /></span>
+            <span class="loading-animation animate-flicker"><img src="{{asset('img/loading.GIF')}}" alt="loading" /></span>
         </div>
     </div>
 
@@ -94,7 +94,7 @@
         <div id="BigVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=H3NIBobsWh0', containment:'#headerwrap', autoPlay:true, mute:true, opacity:1, showControls : false, startAt: 30}"></div> 
         <div class="vertical-center">              
             <div class="intro-text text-center smoothie col-sm-12 match-height">                    
-                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.8s"><img src="{{asset('assets/img/intro-logo.png')}}"></div>              
+                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.8s"><img src="{{asset('img/intro-logo.png')}}"></div>              
             </div>
         </div>
     </header>

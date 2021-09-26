@@ -17,7 +17,7 @@ class WelcomeController extends Controller
         return view('backoffice.pages.welcome.welcomeEdit', compact('welcome'));
     }
 
-    public function update (Welcome $id, Request $request) {
+    public function update ( Request $request, Welcome $id) {
         $request->validate([
             "about_part1"=> "required",
             "about_part2"=> "required",
