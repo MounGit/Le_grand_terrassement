@@ -31,7 +31,7 @@ Route::get('/', function(){
     $bookink = Bookink::all();
     $welcome = Welcome::all();
     $chef=Chef::all();
-    $customer = Customer::all()->take(2);
+    $customer = Customer::all();
     return view ('home', compact('bookink', 'welcome', 'customer', 'chef'));
 })->name('home');
 

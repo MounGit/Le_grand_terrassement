@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             "name" => "Pablo",
             "email" => "test@mail.com",
             "password" => Hash::make('bakabaka'),
-            "role_id" => 1,
+            "role_id" => 2,
             'created_at' => now()
         ]);
 
