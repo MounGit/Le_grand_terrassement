@@ -90,6 +90,10 @@ class BookinkController extends Controller
     public function update(Request $request, Bookink $bookink)
     {
         $request->validate([
+            "title1" => "required",
+            "title2" => "required",
+            "title3" => "required",
+            "subtitle" => "required",
             "adress1" => "required",
             "adress2" => "required",
             "adress3" => "required",
@@ -103,7 +107,10 @@ class BookinkController extends Controller
             "sunday" => "required",
         ]);
 
-
+        $bookink->title1 = $request->title1;
+        $bookink->title2 = $request->title2;
+        $bookink->title3 = $request->title3;
+        $bookink->subtitle = $request->subtitle;
         $bookink->adress1 = $request->adress1;
         $bookink->adress2 = $request->adress2;
         $bookink->adress3 = $request->adress3;

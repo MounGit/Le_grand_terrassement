@@ -1,12 +1,13 @@
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="img/bg/bg1.jpg"
-    data-speed="0.8">
+<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="img/bg/bg1.jpg" data-speed="0.8">
     <div class="section-inner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb100">
-                    <h2 class="section-heading">Book <span class="theme-accent-color">Your</span> Table</h2>
+                    <h2 class="section-heading">{{ $bookink[0]->title1 }}<span
+                            class="theme-accent-color">{{ $bookink[0]->title2 }}</span> {{ $bookink[0]->title3 }}
+                    </h2>
                     <hr class="thin-hr">
-                    <h3 class="section-subheading secondary-font">Satisfaction, everytime.</h3>
+                    <h3 class="section-subheading secondary-font">{{ $bookink[0]->subtitle }}</h3>
                 </div>
             </div>
         </div>
@@ -15,10 +16,10 @@
                 <!-- Address, Phone & Email -->
                 <div class="col-md-5 col-md-offset-1 col-sm-5 wow fadeIn">
                     <h3 class="mb30">Address</h3>
-                    <p class="lead">Florence Building</p>
-                    <p class="lead">Kings Square<br>
-                        London, LDN1 23 </p>
-                    <p class="lead">+448754 658 048<br>
+                    <p class="lead">{{ $bookink[0]->adress1 }}</p>
+                    <p class="lead">{{ $bookink[0]->adress2 }}<br>
+                        {{ $bookink[0]->adress3 }} </p>
+                    <p class="lead">{{ $bookink[0]->phone }}<br>
                 </div>
 
                 <div class="col-md-5 col-sm-7 wow fadeIn">
@@ -37,13 +38,13 @@
                         </div>
                         <div class="col-xs-7">
                             <ul class="list-unstyled">
-                                <li>11:00 AM - 11:00 PM</li>
-                                <li>11:00 AM - 11:00 PM</li>
-                                <li>11:00 AM - 11:00 PM</li>
-                                <li>11:00 AM - 11:00 PM</li>
-                                <li>11:00 AM - 1:00 AM</li>
-                                <li>11:00 AM - 1:00 AM</li>
-                                <li>11:00 AM - 1:00 AM</li>
+                                <li>{{ $bookink[0]->mday }}</li>
+                                <li>{{ $bookink[0]->tuday }}</li>
+                                <li>{{ $bookink[0]->wday }}</li>
+                                <li>{{ $bookink[0]->thday }}</li>
+                                <li>{{ $bookink[0]->fday }}</li>
+                                <li>{{ $bookink[0]->satday }}</li>
+                                <li>{{ $bookink[0]->sunday }}</li>
                             </ul>
                         </div>
                     </div>
@@ -53,8 +54,8 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div id="message"></div>
-                    <form method="post" action="{{ route('bookinks.store') }}" id="contactform"
-                        class=" wow fadeIn" data-wow-delay="0.2s">
+                    <form method="post" action="{{ route('bookinks.store') }}" id="contactform" class=" wow fadeIn"
+                        data-wow-delay="0.2s">
                         @csrf
                         <input type="text" value="{{ old('name') }}" class="form-control col-md-4" name="name"
                             placeholder="Your Name *" id="name" required

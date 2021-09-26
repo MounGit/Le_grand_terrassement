@@ -9,6 +9,17 @@
             @csrf
             @method('PUT')
 
+            <label class="my-3" for="title">Titre : </label>
+            <div class="d-flex">
+            <input type="text" value="{{$bookink->title1}}" name="title1" id="title">
+            <input type="text" value="{{$bookink->title2}}" name="title2" id="title">
+            <input type="text" value="{{$bookink->title3}}" name="title3" id="title">
+            </div>
+
+            <label class="my-3" for="subtitle">Sous-titre : </label>
+            <input type="text" value="{{$bookink->subtitle}}" name="subtitle" id="title">
+
+
             <label class="my-3" for="adress">Adresse : </label>
             <input type="text" value="{{ $bookink->adress1 }}" name="adress1" id="adress">
             <input class="my-2" type="text" value="{{ $bookink->adress2 }}" name="adress2" id="">

@@ -40,40 +40,40 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 
 })
-// ->middleware(['auth','webmaster','editeur'])
+->middleware(['auth','webmaster'],['auth', 'editeur'], ['auth', 'admin'])
 
 ->name('dashboard');
 
 Route::resource('/bookinks', BookinkController::class)
-// ->middleware(['auth','admin', 'webmaster'])
+->middleware(['auth','admin'], ['auth','webmaster'])
 ;
 
 Route::resource('/customers', CustomerController::class)
-// ->middleware(['auth', 'admin', 'editeur', 'webmaster'])
+->middleware(['auth', 'admin'], ['auth', 'editeur'],['auth', 'webmaster'])
 ;
 
 Route::get('/backoffice/welcome', [WelcomeController::class, 'index'])
-// ->middleware(['auth', 'admin', 'webmaster'])
+->middleware(['auth', 'admin'] ,['auth', 'webmaster'])
 ->name('welcome');
 
 Route::get('/welcome/{id}/edit', [WelcomeController::class, 'edit'])
-// ->middleware(['auth', 'admin', 'webmaster'])
+->middleware(['auth', 'admin'],['auth', 'webmaster'])
 ->name('welcomeEdit');
 
 Route::put('/welcome/{id}/update', [WelcomeController::class, 'update'])
-// ->middleware(['auth', 'admin', 'webmaster'])
+->middleware(['auth', 'admin'],['auth', 'webmaster'])
 ->name('welcomeUpdate');
 
 Route::resource('/users', UserController::class)
-// ->middleware(['auth'])
+->middleware(['auth'])
 ;
 
 Route::resource('/users', UserController::class)
-// ->middleware(['auth', 'admin'])
+->middleware(['auth', 'admin'])
 ;
 
 Route::resource('/chefs', ChefController::class)
-// ->middleware(['auth', 'admin', 'webmaster'])
+->middleware(['auth', 'admin'], ['auth', 'webmaster'])
 ;
 
 require __DIR__.'/auth.php';

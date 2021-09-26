@@ -56,10 +56,21 @@ class DatabaseSeeder extends Seeder
             "nom_chef" => "Jhon Doe"],
         ]);
 
-        
+        // DB::table('customers')->insert([
+        //     "title1" => "OUR",
+        //     "title2" => "HAPPY",
+        //     "title3" => "CUSTOMERS",
+        //     "subtitle" => "satisfaction, everytime."
+        // ]);
+
+
         Customer::factory(5)->create();   
 
         DB::table('bookinks')->insert([
+            "title1" => "BOOK",
+            "title2" => "YOUR",
+            "title3" => "TABLE",
+            "subtitle" => "satisfaction, everytime.",
             "adress1" => "Florence Building",
             "adress2" => "Kings Square",
             "adress3" => "London, LDN1 23 ",
