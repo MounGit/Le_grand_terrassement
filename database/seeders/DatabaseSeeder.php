@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert([
             ["name" => "admin"],
             ["name" => "webmaster"],
-            ["name" => "editeur"]
+            ["name" => "editeur"]  
 
         ]);
 
@@ -56,12 +56,22 @@ class DatabaseSeeder extends Seeder
             "nom_chef" => "Jhon Doe"],
         ]);
 
-        // DB::table('customers')->insert([
-        //     "title1" => "OUR",
-        //     "title2" => "HAPPY",
-        //     "title3" => "CUSTOMERS",
-        //     "subtitle" => "satisfaction, everytime."
-        // ]);
+        DB::table('customers')->insert([
+            [
+                "name" => "Davies",
+                "firstname" => "Charles",
+                "comment" => "Compellingly customize highly efficient outsourcing with premium quality vectors. Conveniently target customer directed relationships after highly efficient process improvements.",
+                "grade" => 5,
+                "url" => "small1.jpg"
+            ],
+            [
+                "name" => "Davies",
+                "firstname" => "Charles",
+                "comment" => "Compellingly customize highly efficient outsourcing with premium quality vectors. Conveniently target customer directed relationships after highly efficient process improvements.",
+                "grade" => 5,
+                "url" => "small2.jpg"
+            ]
+        ]);
 
 
         Customer::factory(5)->create();   

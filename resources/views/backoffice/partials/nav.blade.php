@@ -80,11 +80,11 @@
 
      <li>
         <a href="#">
-            <form method="POST" class="nav-link py-3 px-0 px-lg-3 rounded" action="{{ route('logout') }}">
+            <form method="POST" class="nav-link py-3 px-0 pl-5 rounded" action="{{ route('logout') }}">
                 @csrf
                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                     this.closest('form').submit();">
-                    {{ __('Log Out') }}
+                    {{ __("L.O.") }}
                 </x-dropdown-link>
             </form>
         </a>
