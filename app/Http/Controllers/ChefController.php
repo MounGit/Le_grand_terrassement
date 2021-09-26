@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chef;
+use CreateChefsTable;
+use Database\Factories\ChefFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ChefController extends Controller
 {
@@ -14,7 +17,8 @@ class ChefController extends Controller
      */
     public function index()
     {
-        //
+        $chef = Chef::all();
+       return view('backoffice.pages.chef.chef', compact('chef'));
     }
 
     /**
@@ -24,7 +28,7 @@ class ChefController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.chef.chefCreate');
     }
 
     /**
@@ -35,8 +39,20 @@ class ChefController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "photo_chef" => "required",
+            "nom_chef" => "required",
+
+        ]);
+        $chef = new Chef;
+        $chef->nom_chef = $request->nom_chef;
+        $chef->photo_chef = $request->file("photo_chef")->hashName();
+        $chef->save();
+
+        $request->file('photo_chef')->storePublicly('img', 'public');
+        return redirect()->route('chefs.index')->with('message', 'Nouveau chef ajouté avec succès');
     }
+    
 
     /**
      * Display the specified resource.
@@ -46,9 +62,8 @@ class ChefController extends Controller
      */
     public function show(Chef $chef)
     {
-        //
+        return view('backoffice.pages.chef.chefShow', compact('chef'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,7 +72,8 @@ class ChefController extends Controller
      */
     public function edit(Chef $chef)
     {
-        //
+
+        return view('backoffice.pages.chef.chefEdit', compact('chef'));
     }
 
     /**
@@ -69,7 +85,17 @@ class ChefController extends Controller
      */
     public function update(Request $request, Chef $chef)
     {
-        //
+        $request->validate([
+            "photo_chef"=> "required",
+            "nom_chef"=> "required",
+        ]);
+        Storage::disk("public")->delete("img/" . $chef->photo_chef);
+        $chef->nom_chef = $request->nom_chef;
+        $chef->photo_chef = $request->file("photo_chef")->hashName();
+        $chef->save();
+        $request->file('photo_chef')->storePublicly('img', 'public');
+
+        return redirect()->route('chefs.index')->with('message', 'Modifié avec succès');
     }
 
     /**
@@ -80,6 +106,9 @@ class ChefController extends Controller
      */
     public function destroy(Chef $chef)
     {
-        //
+        Storage::disk('public')->delete('img/'. $chef->url);
+        $chef->delete();
+        return redirect()->route('chefs.index')->with('message', 'Chef supprimé avec succès');
+        
     }
 }

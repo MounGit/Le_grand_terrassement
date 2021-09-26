@@ -13,11 +13,20 @@
     
     @include('backoffice.partials.nav')
     
+
+    <!--Home-->
     <section class="home-section">
         <div class="text">
                 @yield('baka')
         </div>
     </section>
+
+
+
+    <!--Customers-->
+
+
+    <!--Bookink-->
 
 
 </body>

@@ -20,9 +20,9 @@
                             <div class="row">
 
                                 <div class="col-xs-8 col-xs-offset-2 item-caption">
-                                    @php
+                                    {{-- @php
                                                     $a=0;
-                                                @endphp
+                                                @endphp --}}
                                     @foreach ($customer as $customer)
 
                                         <div class="col-sm-2">

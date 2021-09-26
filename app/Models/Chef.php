@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Chef extends Model
 {
     use HasFactory;
+
+    protected $table = "chefs";
+
+    protected $fillable = ["photo_chef","nom_chef"];
 }
