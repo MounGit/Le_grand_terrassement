@@ -20,12 +20,9 @@
                             <div class="row">
 
                                 <div class="col-xs-8 col-xs-offset-2 item-caption">
-                                    {{-- @php
-                                                    $a=0;
-                                                @endphp --}}
                                     @foreach ($customer as $customer)
-
-                                        <div class="col-sm-2">
+                                        @if ($customer->grade === 5)
+                                            <div class="col-sm-2">
 
                                             <img src="{{ asset('img/' . $customer->url) }}"
                                                 class="img-responsive testimonial-author" alt="">
@@ -39,36 +36,10 @@
                                                 <li><i class="fa fa-star theme-accent-color"></i></li>
                                                 <li><i class="fa fa-star theme-accent-color"></i></li>
                                                 <li><i class="fa fa-star theme-accent-color"></i></li>
-                                                {{-- <li>
-                                                @while ($a < $customer->grade)
-                                                    $a++;
-                                                    print('<i class="fa fa-star theme-accent-color"></i>');
-                                                @endwhile</li> --}}
-                                                {{-- <li>{{$a}}<i class="fa fa-star theme-accent-color"></i></li> --}}
-                                                {{-- <li>
-                                                    @php
-                                                        $star = '<i class="fa fa-star theme-accent-color"></i>';
-                                                        for ($i = 0; $i != $customer->grade; $i++) {
-                                                            return $star;
-                                                        }
-                                                    @endphp
-                                                </li> --}}
-                                                {{-- @php
-                                                    $a=0;
-                                                @endphp
-
-                                                @php                                                    
-                                                    while ($a < $customer->grade) {
-                                                        $a++
-                                                    }
-                                                @endphp
-
-                                                <li>{{$a}}<i class="fa fa-star theme-accent-color"></i></li> --}}
-                                                {{-- <li><i class="fa fa-star theme-accent-color"></i></li>
-                                                <li><i class="fa fa-star theme-accent-color"></i></li>
-                                                <li><i class="fa fa-star theme-accent-color"></i></li> --}}
                                             </ul>
                                         </div>
+                                        @endif
+                                        
                                     @endforeach
 
                                 </div>
