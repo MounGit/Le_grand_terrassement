@@ -97,5 +97,15 @@ class DatabaseSeeder extends Seeder
         // Bookink::factory(15)->create();
 
         User::factory(10)->create();
+
+        DB::table('navs')->insert([
+            "name1" => "THE",
+            "name2" => "GRILL",
+            "section1" => "ABOUT US",
+            "section2" => "SPECIALS",
+            "section3" => "OUR MENU",
+            "section4" => "BOOK A TABLE",
+            "section5" => "EXTRAS",
+        ]);
     }
 }

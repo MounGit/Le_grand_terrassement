@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookinkController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\NavController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Bookink;
@@ -75,5 +76,14 @@ Route::resource('/users', UserController::class)
 Route::resource('/chefs', ChefController::class)
 // ->middleware(['auth', 'admin'], ['auth', 'webmaster'])
 ;
+
+// NAV
+
+Route::get('/navs', [NavController::class, 'index'])->name('nav');
+
+Route::get('/navs/{id}/edit', [NavController::class, 'edit'])->name('navEdit');
+
+Route::put('/navs/{id}/update', [NavController::class, 'update'])->name('navUpdate');
+
 
 require __DIR__.'/auth.php';
