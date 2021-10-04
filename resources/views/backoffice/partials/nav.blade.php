@@ -46,6 +46,14 @@
       <span class="tooltip">Chefs</span>
     </li>
 
+    
+        <li>
+          <a href="{{route('section')}}">
+            <i class='bx bxs-brush'></i>
+            <span class="links_name">Style Sections</span>
+          </a>
+          <span class="tooltip">Style Sections</span>
+        </li>
 
     {{-- lien backoffice user --}}
 
@@ -56,7 +64,6 @@
       </a>
       <span class="tooltip">Users</span>
     </li>
-
 
 
 

@@ -12,8 +12,9 @@ class NavController extends Controller
         return view('backoffice.pages.navbar.nav', compact('nav'));
     }
 
-    public function edit () {
-        $nav = Nav::all();
+    public function edit (Nav $id) {
+
+        $nav = $id;
         return view('backoffice.pages.navbar.navEdit', compact('nav'));
     }
 

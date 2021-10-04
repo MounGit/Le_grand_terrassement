@@ -1,11 +1,11 @@
-        <section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('img/bg/bg4.jpg')}}" data-speed="0.8">
+        <section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('img/'.$section[0]->sect2_bg)}}" data-speed="0.8">
             <div class="section-inner">
                  <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center mb100">
-                            <h2 class="section-heading">Our <span class="theme-accent-color">Acclaimed</span> Chefs</h2>
+                            <h2 class="section-heading">{{$section[0]->sect2_title}}<span class="theme-accent-color"></span></h2>
                             <hr class="thin-hr">
-                            <h3 class="section-subheading secondary-font">Dedicated to excellence.</h3>
+                            <h3 class="section-subheading secondary-font">{{$section[0]->sect2_subtitle}}</h3>
                         </div>
                     </div>
                 </div>

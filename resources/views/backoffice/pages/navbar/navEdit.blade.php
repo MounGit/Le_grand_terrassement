@@ -4,6 +4,15 @@
 <h2 class="page-section-heading text-center text-uppercase py-5">Modifiez la barre de navigation</h2>
 
     <section class="container">
+        @if ($errors->any())
+        <div class="container alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form class="container d-flex flex-column w-75 pb-5" action="{{ route('navUpdate', $nav->id) }}"
             method="post">
             @csrf
@@ -15,7 +24,7 @@
             <input type="text" value="{{$nav->name2}}" name="name2" id="">
             </div>
 
-            <label class="my-3" for="">Noms des différentes sections</label>
+            <label class="my-3" for="">Nom des différentes sections :</label>
             <div class="d-flex flex-column container">
                 <label for="sect1">Section 1 : </label>
                 <input value="{{ $nav->section1 }}" type="text" name="section1" id="sect1">

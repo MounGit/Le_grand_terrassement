@@ -1,13 +1,13 @@
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="img/bg/bg1.jpg" data-speed="0.8">
+<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('img/'. $section[0]->sect4_bg)}}" data-speed="0.8">
     <div class="section-inner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb100">
-                    <h2 class="section-heading">{{ $bookink[0]->title1 }}<span
-                            class="theme-accent-color">{{ $bookink[0]->title2 }}</span> {{ $bookink[0]->title3 }}
+                    <h2 class="section-heading">{{ $section[0]->sect4_title }}<span
+                            class="theme-accent-color"></span>
                     </h2>
                     <hr class="thin-hr">
-                    <h3 class="section-subheading secondary-font">{{ $bookink[0]->subtitle }}</h3>
+                    <h3 class="section-subheading secondary-font">{{$section[0]->sect4_title}}</h3>
                 </div>
             </div>
         </div>

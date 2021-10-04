@@ -4,8 +4,15 @@
 <h2 class="page-section-heading text-center text-uppercase py-5">Informations générales</h2>
 
 <section class="container py-5">
+    
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+    @endif
+
     <div class="container">
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb100">
                     <h2 class="section-heading">{{ $bookink[0]->title1 }} <span
@@ -14,8 +21,8 @@
                     <h3 class="section-subheading secondary-font">{{ $bookink[0]->subtitle }}</h3>
                 </div>
             </div>
-        </div>
-        <hr class="thin-hr my-4">
+        </div> --}}
+        {{-- <hr class="thin-hr my-4"> --}}
         <div class="row mb100">
             <!-- Address, Phone & Email -->
             <div class="col-md-5 col-md-offset-1 col-sm-5 wow fadeIn">

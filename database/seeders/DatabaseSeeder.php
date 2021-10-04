@@ -77,10 +77,10 @@ class DatabaseSeeder extends Seeder
         Customer::factory(5)->create();   
 
         DB::table('bookinks')->insert([
-            "title1" => "BOOK",
-            "title2" => "YOUR",
-            "title3" => "TABLE",
-            "subtitle" => "satisfaction, everytime.",
+            // "title1" => "BOOK",
+            // "title2" => "YOUR",
+            // "title3" => "TABLE",
+            // "subtitle" => "satisfaction, everytime.",
             "adress1" => "Florence Building",
             "adress2" => "Kings Square",
             "adress3" => "London, LDN1 23 ",
@@ -106,6 +106,23 @@ class DatabaseSeeder extends Seeder
             "section3" => "OUR MENU",
             "section4" => "BOOK A TABLE",
             "section5" => "EXTRAS",
+        ]);
+
+        DB::table('sections')->insert([
+            "video"=> "https://www.youtube.com/watch?v=H3NIBobsWh0",
+            "logo" => "intro-logo.png", 
+            "sect1_title" => "A Warm Welcome",
+            "sect1_subtitle" => "Were very happy to see you.",
+            "sect1_bg" => "bg1.jpg",
+            "sect2_title" => "Our Acclaimed Chef",
+            "sect2_subtitle" => "dedicated to excellence",
+            "sect2_bg" => "bg2.jpg",
+            "sect3_title" => "Our Happy Customers",
+            "sect3_subtitle" => "satisfaction, everytime.",
+            "sect3_bg" => "bg3.jpg",
+            "sect4_title" => "Book Your Table",
+            "sect4_subtitle" => "satisfaction, everytime.",
+            "sect4_bg" => "bg4.jpg"
         ]);
     }
 }

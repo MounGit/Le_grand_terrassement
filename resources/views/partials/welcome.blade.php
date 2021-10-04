@@ -4,9 +4,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb100">                        
-                    <h2 class="section-heading">A <span class="theme-accent-color">Warm</span> Welcome</h2>
+                    <h2 class="section-heading"><span class="theme-accent-color">{{$section[0]->sect1_title}}</span></h2>
                     <hr class="thin-hr">
-                    <h3 class="section-subheading secondary-font">Were very happy to see you.</h3>
+                    <h3 class="section-subheading secondary-font">{{$section[0]->sect1_subtitle}}</h3>
                 </div>
             </div>
         </div>

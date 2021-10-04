@@ -19,10 +19,10 @@ class CreateBookinksTable extends Migration
             // $table->string('email');
             // $table->string('url');
             // $table->text('msg');
-            $table->string('title1')->nullable();
-            $table->string('title2')->nullable();
-            $table->string('title3')->nullable();
-            $table->string('subtitle')->nullable();
+            // $table->string('title1')->nullable();
+            // $table->string('title2')->nullable();
+            // $table->string('title3')->nullable();
+            // $table->string('subtitle')->nullable();
             $table->string('adress1');
             $table->string('adress2');
             $table->string('adress3');

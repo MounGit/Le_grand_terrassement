@@ -4,12 +4,21 @@
 <h2 class="page-section-heading text-center text-uppercase py-5">Modifiez les informations générales</h2>
 
     <section class="container">
+        @if ($errors->any())
+        <div class="container alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form class="container d-flex flex-column w-75 pb-5" action="{{ route('bookinks.update', $bookink->id) }}"
             method="post">
             @csrf
             @method('PUT')
 
-            <label class="my-3" for="title">Titre : </label>
+            {{-- <label class="my-3" for="title">Titre : </label>
             <div class="d-flex">
             <input type="text" value="{{$bookink->title1}}" name="title1" id="title">
             <input type="text" value="{{$bookink->title2}}" name="title2" id="title">
@@ -17,7 +26,7 @@
             </div>
 
             <label class="my-3" for="subtitle">Sous-titre : </label>
-            <input type="text" value="{{$bookink->subtitle}}" name="subtitle" id="title">
+            <input type="text" value="{{$bookink->subtitle}}" name="subtitle" id="title"> --}}
 
 
             <label class="my-3" for="adress">Adresse : </label>

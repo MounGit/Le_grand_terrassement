@@ -1,12 +1,12 @@
 <section class="dark-wrapper opaqued parallax" data-parallax="scroll"
-    data-image-src="{{ asset('img/bg/bg10.jpg') }}" data-speed="0.8">
+    data-image-src="{{ asset('img/'. $section[0]->sect3_bg) }}" data-speed="0.8">
     <div class="section-inner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mb100">
-                    <h2 class="section-heading">Our <span class="theme-accent-color">Happy</span> Customers</h2>
+                    <h2 class="section-heading"><span class="theme-accent-color">{{$section[0]->sect3_title}}</span></h2>
                     <hr class="thin-hr">
-                    <h3 class="section-subheading secondary-font">Satisfaction, everytime.</h3>
+                    <h3 class="section-subheading secondary-font">{{$section[0]->sect3_subtitle}}</h3>
                 </div>
             </div>
         </div>

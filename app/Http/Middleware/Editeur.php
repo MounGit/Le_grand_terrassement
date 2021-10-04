@@ -17,7 +17,7 @@ class Editeur
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role->name === 'editeur') {
+        if (Auth::user()->role->name === 'editeur' || Auth::user()->role->name === 'webmaster' || Auth::user()->role->name === 'admin') {
             return $next($request);
             }else {
                 abort(403);
